@@ -321,6 +321,7 @@
 <br><p style="font-size: 14px; text-align:center;">Copyright <span class="copyright-year"></span> &amp; Todos los derechos reservados.</p>
     <p style="font-size: 14px;text-align:center;">El contenido de este sitio sólo tiene fines informativos y no pretende sustituir el consejo, diagnóstico o tratamiento médico profesional. Pida siempre consejo a su médico o a otro profesional sanitario cualificado sobre una enfermedad, una sospecha de enfermedad y antes de iniciar un programa de dieta, ejercicio o suplementos, o de tomar o dejar de tomar un medicamento.</p>
     <p style="font-size: 14px;text-align:center;">El uso de cualquier información proporcionada por este sitio y otros que aparecen en el sitio es exclusivamente bajo su propio riesgo. El sitio y su contenido se proporcionan «tal cual». ClickBank es el revendedor de los productos de este sitio. CLICKBANK® es una marca registrada de Click Sales Inc, una corporación de Delaware ubicada en 1444 S. Entertainment Ave., Boise Boise, ID 83709, EE.UU. y se utiliza con permiso. El papel de ClickBank como minorista no constituye una aprobación, respaldo o revisión de dichos productos ni de ninguna afirmación, declaración u opinión utilizada en la promoción de dichos productos.</p>
+
 <script data-cfasync="false" src="js/email-decode.min.js"></script><script>
 const d = new Date();
 let year = d.getFullYear();
@@ -334,6 +335,21 @@ let year = d.getFullYear();
   function handleExcerpt() {
     // console.log($(this));
    
+$(".excerpt-container button").on("click", function() {
+        const button = $(this);
+        const text1 = "Read more";
+        const text2 = "Read less";
+        const parent = button.parents(".excerpt-container");
+        const select = parent.find(".excerpt-text")
+        select.toggleClass("excerpt-text--active");
+        select.hasClass("excerpt-text--active") ? button.text(text1) : button.text(text2);
+      })
+    }
+    
+    var muteStatus = 0;
+    var playCount = 0;
+    var newWindow = true;
+    var player;
 
 //Shows the ATC Button after 40min
 $(".showtimer").delay(timeset).show(1000);
